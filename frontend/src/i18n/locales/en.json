@@ -10,6 +10,7 @@
     "alphaZoo": "Alpha Zoo",
     "settings": "Settings",
     "correlation": "Correlation Matrix",
+    "marketAnalysis": "Market Analysis",
     "sessions": "Sessions",
     "newChat": "New Chat",
     "noSessions": "No sessions yet",
@@ -554,5 +555,11 @@
   },
   "errorBoundary": {
     "somethingWrong": "Something went wrong"
+  },
+  "marketAnalysis": {
+    "title": "Market Analysis",
+    "unavailableTitle": "Market Analysis Service Unavailable",
+    "unavailableDesc": "Make sure the market-analysis service is running (default port 9900), or click below to open in a new tab.",
+    "openInNewTab": "Open in New Tab"
   }
 }
