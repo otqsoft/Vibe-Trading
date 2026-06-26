@@ -560,6 +560,8 @@
     "title": "Market Analysis",
     "unavailableTitle": "Market Analysis Service Unavailable",
     "unavailableDesc": "Make sure the market-analysis service is running (default port 9900), or click below to open in a new tab.",
-    "openInNewTab": "Open in New Tab"
+    "openInNewTab": "Open in New Tab",
+    "retry": "Retry",
+    "loading": "Loading market data…"
   }
 }

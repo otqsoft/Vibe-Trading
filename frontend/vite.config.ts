@@ -44,6 +44,9 @@ export default defineConfig(({ mode }) => {
         "/runs": apiProxy,
         "/correlation": apiProxyWithHtmlFallback,
         "^/alpha(?:/|$)": apiProxy,
+        // Market-analysis TradingView datafeed API (served by Vibe-Trading backend)
+        "/tv": apiProxy,
+        "/ticks": apiProxy,
       },
     },
     build: {

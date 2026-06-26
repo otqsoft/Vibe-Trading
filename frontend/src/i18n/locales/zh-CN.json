@@ -560,6 +560,8 @@
     "title": "行情分析",
     "unavailableTitle": "行情分析服务不可用",
     "unavailableDesc": "请确保 market-analysis 服务已启动（默认端口 9900），或点击下方按钮在新标签页中打开。",
-    "openInNewTab": "在新标签页中打开"
+    "openInNewTab": "在新标签页中打开",
+    "retry": "重试",
+    "loading": "加载行情数据中…"
   }
 }

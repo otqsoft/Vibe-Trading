@@ -90,6 +90,7 @@ include = ["src*", "backtest*", "cli*"]
 ]
 "backtest" = ["*.py"]
 "src.factors" = ["zoo/**/*.yaml", "zoo/**/*.md", "zoo/**/NOTICE"]
+"src.chanlun" = ["exchange/*.json", "exchange/*.csv", "tools/**/*"]
 
 [project.optional-dependencies]
 ibkr = [
@@ -106,6 +107,14 @@ ashare = [
 ]
 harmonic = [
     "pyharmonics>=1.5.0",
+]
+market-analysis = [
+    "pytdx>=1.72",
+    "tenacity>=8.0.0",
+    "pytz>=2023.3",
+    "tzlocal>=5.0",
+    "pinyin>=0.4.0",
+    "sqlalchemy>=2.0.0",
 ]
 dev = [
     "pytest>=7.0",

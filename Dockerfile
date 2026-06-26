@@ -50,8 +50,8 @@ COPY agent/ agent/
 # Copy built frontend
 COPY --from=frontend-build /app/frontend/dist frontend/dist
 
-# Install CLI entrypoint
-RUN pip install --no-cache-dir -e . -i https://mirrors.aliyun.com/pypi/simple/
+# Install CLI entrypoint (includes chanlun from agent/src/chanlun)
+RUN pip install --no-cache-dir -e ".[market-analysis]" -i https://mirrors.aliyun.com/pypi/simple/
 
 # Runtime should not run as root. Keep writable app data directories owned by
 # the service user so named Docker volumes inherit usable permissions.
