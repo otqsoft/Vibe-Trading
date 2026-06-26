@@ -562,6 +562,25 @@
     "unavailableDesc": "请确保 market-analysis 服务已启动（默认端口 9900），或点击下方按钮在新标签页中打开。",
     "openInNewTab": "在新标签页中打开",
     "retry": "重试",
-    "loading": "加载行情数据中…"
+    "loading": "加载行情数据中…",
+    "chartCandles": "K线图",
+    "chartLine": "分时线",
+    "chartArea": "面积图",
+    "chartBars": "柱状图",
+    "addToWatchlist": "加入自选",
+    "removeFromWatchlist": "移出自选",
+    "watchlistGroups": "自选组管理",
+    "groupName": "分组名称",
+    "confirm": "确认",
+    "addGroup": "新建分组",
+    "toggleWatchlist": "自选列表",
+    "emptyWatchlist": "暂无自选股",
+    "chartLayout": "图表布局",
+    "layoutSingle": "布局-单图",
+    "layoutH2": "布局-横向双图",
+    "layoutV2": "布局-纵向双图",
+    "layoutH73": "布局-横向7/3",
+    "layoutThree": "布局-三图",
+    "layoutFour": "布局-四图"
   }
 }
