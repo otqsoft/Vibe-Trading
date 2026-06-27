@@ -204,7 +204,7 @@ export function MarketAnalysis() {
     () => (localStorage.getItem("tv_chart_layout") as ChartLayout) || "single"
   );
   const [showLayoutDropdown, setShowLayoutDropdown] = useState(false);
-  const layoutDropdownRef = useRef<HTMLDivElement>(null);
+  const layoutButtonRef = useRef<HTMLDivElement>(null);
 
   // Watchlist state
   const [watchlists, setWatchlists] = useState<WatchlistGroup[]>(loadWatchlists);
@@ -213,20 +213,20 @@ export function MarketAnalysis() {
   const [showGroupDropdown, setShowGroupDropdown] = useState(false);
   const [newGroupName, setNewGroupName] = useState("");
   const [showNewGroup, setShowNewGroup] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const groupButtonRef = useRef<HTMLDivElement>(null);
   const watchlistRef = useRef<HTMLDivElement>(null);
 
   // Close dropdowns on outside click
   useEffect(() => {
     const handler = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+      if (groupButtonRef.current && !groupButtonRef.current.contains(e.target as Node)) {
         setShowGroupDropdown(false);
         setShowNewGroup(false);
       }
       if (watchlistRef.current && !watchlistRef.current.contains(e.target as Node)) {
         setShowWatchlist(false);
       }
-      if (layoutDropdownRef.current && !layoutDropdownRef.current.contains(e.target as Node)) {
+      if (layoutButtonRef.current && !layoutButtonRef.current.contains(e.target as Node)) {
         setShowLayoutDropdown(false);
       }
     };
@@ -548,7 +548,7 @@ export function MarketAnalysis() {
   return (
     <div className="flex flex-col h-full">
       {/* Toolbar */}
-      <div className="flex items-center gap-2 px-3 py-1.5 border-b bg-card shrink-0">
+      <div className="tv-toolbar relative z-50 flex items-center gap-2 px-3 py-1.5 border-b bg-card shrink-0">
         {/* Watchlist toggle - leftmost */}
         <button
           id="watchlist-toggle-btn"
@@ -577,7 +577,7 @@ export function MarketAnalysis() {
         {/* Right: Layout + Chart style + Watchlist */}
         <div className="ml-auto flex items-center gap-1">
           {/* Layout switcher */}
-          <div ref={layoutDropdownRef} className="relative">
+          <div ref={layoutButtonRef} className="relative">
             <button
               title={t("marketAnalysis.chartLayout")}
               onPointerDown={(e) => e.stopPropagation()}
@@ -632,7 +632,7 @@ export function MarketAnalysis() {
           </button>
 
           {/* Watchlist group manager */}
-          <div ref={dropdownRef} className="relative">
+          <div ref={groupButtonRef} className="relative">
             <button
               title={t("marketAnalysis.watchlistGroups")}
               onPointerDown={(e) => e.stopPropagation()}
@@ -645,7 +645,7 @@ export function MarketAnalysis() {
             </button>
 
             {showGroupDropdown && (
-              <div className="absolute right-0 top-full mt-1 z-50 w-56 bg-popover border rounded-lg shadow-lg py-1">
+              <div className="absolute right-0 top-full mt-1 z-[9999] w-56 bg-popover border rounded-lg shadow-lg py-1">
                 {watchlists.map((g, i) => (
                   <div
                     key={i}
@@ -739,7 +739,7 @@ export function MarketAnalysis() {
         )}
 
         {/* Chart area */}
-        <div className="relative flex-1 overflow-hidden">
+        <div className="tv-chart-area relative z-0 flex-1 overflow-hidden">
           {loading && (
             <div className="absolute inset-0 flex items-center justify-center bg-background/80 z-10">
               <div className="flex items-center gap-2 text-muted-foreground">

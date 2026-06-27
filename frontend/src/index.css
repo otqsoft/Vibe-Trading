@@ -86,3 +86,14 @@
   50%  { transform: translateX(200%); }
   100% { transform: translateX(-100%); }
 }
+
+/* Force TradingView iframes below the toolbar dropdown menus */
+.tv-chart-area iframe,
+.tv-chart-area div[id^="tv_"] {
+  position: relative !important;
+  z-index: 0 !important;
+}
+.tv-toolbar {
+  isolation: isolate;
+  z-index: 50 !important;
+}

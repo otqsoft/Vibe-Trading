@@ -1669,6 +1669,20 @@ async def health_check():
     )
 
 
+@app.get("/auth-config")
+async def auth_config():
+    """Public endpoint — returns auth configuration hints for the frontend.
+
+    No authentication required; this only exposes non-sensitive metadata
+    (whether a key is required, and a partial hint when one is configured).
+    """
+    api_key = _configured_api_key()
+    return {
+        "auth_required": bool(api_key),
+        "key_hint": f"{api_key[:3]}{'*' * (len(api_key) - 3)}" if api_key else None,
+    }
+
+
 @app.get("/correlation")
 async def get_correlation_matrix(
     codes: str = Query(..., description="Comma-separated asset codes, e.g. BTC-USDT,ETH-USDT,SPY"),
