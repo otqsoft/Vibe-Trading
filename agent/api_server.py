@@ -775,15 +775,11 @@ def _validate_api_auth(
     allow_query: bool = False,
 ) -> None:
     """Validate configured auth, preserving loopback-only dev mode."""
-    # CORS protects response reads, not blind side effects. Reject unsafe
-    # browser-originated cross-site requests before honoring loopback dev-mode
-    # trust, otherwise a malicious page can drive local POST/PUT/DELETE routes.
-    if request.method.upper() not in _SAFE_BROWSER_METHODS:
-        _reject_cross_site_browser_request(request)
+    is_local = _is_local_client(request)
 
-    # Loopback clients are always trusted, even when API_AUTH_KEY is set.
-    # The key only gates non-local (LAN/remote) access.
-    if _is_local_client(request):
+    if is_local:
+        if request.method.upper() not in _SAFE_BROWSER_METHODS:
+            _reject_cross_site_browser_request(request)
         return
 
     api_key = _configured_api_key()
